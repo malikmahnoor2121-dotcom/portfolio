@@ -1,0 +1,88 @@
+:root{
+  --navy:#8f2a5c;
+  --navy-2:#a63871;
+  --ink:#4a2a3c;
+  --muted:#7d5c6e;
+  --bg:#fff5f9;
+  --card:#ffffff;
+  --line:#f0d5e2;
+  --accent:#d6336c;
+  --head:'Sora',system-ui,sans-serif;
+  --body:'Nunito Sans',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);color:var(--ink);background:var(--bg);line-height:1.65;font-size:17px}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+
+.layout{display:grid;grid-template-columns:340px 1fr;min-height:100vh}
+
+/* Sidebar */
+.side{background:var(--navy);color:#fff0f6;padding:56px 36px;position:sticky;top:0;height:100vh;display:flex;flex-direction:column;justify-content:space-between}
+.avatar{width:96px;height:96px;border-radius:50%;object-fit:cover;border:3px solid #fff0f6;display:block;margin-bottom:24px}
+.side h1{font:700 32px/1.15 var(--head);letter-spacing:-.01em}
+.side .role{margin-top:10px;color:#f7c9dd}
+nav{margin-top:44px}
+nav a{display:block;text-decoration:none;padding:9px 0 9px 16px;border-left:2px solid #c0648f;color:#f7c9dd;transition:color .2s,border-color .2s}
+nav a:hover,nav a.active{color:#fff;border-color:#fff}
+.contact{font-size:15px;color:#f7c9dd;display:grid;gap:6px}
+.contact a{text-decoration:none;color:#fff}
+.contact a:hover{text-decoration:underline}
+
+/* Content */
+main{padding:72px 64px 40px;max-width:900px}
+section{padding-bottom:72px;scroll-margin-top:32px}
+h2{font:700 26px var(--head);color:var(--navy);margin-bottom:24px;padding-bottom:12px;border-bottom:2px solid var(--navy)}
+p+p{margin-top:14px}
+
+/* Hero */
+.hero h2{border:0;padding:0;font-size:clamp(30px,4.4vw,44px);line-height:1.15;letter-spacing:-.015em;max-width:18em;margin-bottom:20px}
+.hero p{max-width:34em;color:var(--muted);font-size:18px}
+.btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn{display:inline-block;padding:12px 22px;border-radius:6px;text-decoration:none;font-weight:600;border:2px solid var(--navy);transition:background .2s,color .2s}
+.btn.primary{background:var(--navy);color:#fff}
+.btn.primary:hover{background:var(--navy-2)}
+.btn.ghost{color:var(--navy)}
+.btn.ghost:hover{background:var(--navy);color:#fff}
+
+/* Skills */
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+.box{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:22px 24px}
+.box h3{font:600 17px var(--head);color:var(--navy);margin-bottom:12px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;list-style:none}
+.tags li{background:#fde4ef;color:var(--navy);padding:4px 12px;border-radius:99px;font-size:14.5px;font-weight:600}
+
+/* Projects */
+.projects{display:grid;gap:20px}
+.project{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:8px;padding:24px 26px}
+.project h3{font:600 19px var(--head);color:var(--navy)}
+.project .stack{color:var(--accent);font-weight:600;font-size:15px;margin:4px 0 10px}
+.project a{display:inline-block;margin-top:12px;font-weight:600;color:var(--accent)}
+
+/* Timeline */
+.timeline{list-style:none;position:relative;padding-left:28px}
+.timeline::before{content:"";position:absolute;left:5px;top:8px;bottom:8px;width:2px;background:var(--line)}
+.timeline li{position:relative;padding-bottom:28px}
+.timeline li:last-child{padding-bottom:0}
+.timeline li::before{content:"";position:absolute;left:-28px;top:8px;width:12px;height:12px;border-radius:50%;background:var(--card);border:3px solid var(--navy)}
+.timeline h3{font:600 18px var(--head);color:var(--navy)}
+.timeline .meta{color:var(--muted);font-size:15px;margin:2px 0 8px}
+.timeline ul{padding-left:20px}
+.timeline ul li{padding:0 0 4px;position:static}
+.timeline ul li::before{display:none}
+
+/* Contact */
+.mail{font:700 clamp(20px,3vw,28px) var(--head);color:var(--navy);text-decoration:none;border-bottom:2px solid var(--accent);word-break:break-all}
+.mail:hover{color:var(--accent)}
+footer{color:var(--muted);font-size:14px;padding-top:24px;border-top:1px solid var(--line)}
+
+/* Mobile */
+@media (max-width:900px){
+  .layout{grid-template-columns:1fr}
+  .side{position:static;height:auto;padding:36px 24px;gap:28px}
+  nav{display:flex;flex-wrap:wrap;gap:4px 18px;margin-top:24px}
+  nav a{border:0;padding:4px 0}
+  main{padding:48px 24px 32px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
